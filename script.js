@@ -264,6 +264,64 @@ journalBooks.forEach((book) => {
   No JavaScript is required to make it work.
 
   Later we can make different journal entries display their own
-  volume title dynamically if you want.
+  volume title dynamically if we want.
 */
 
+/* =========================================================
+   CUSTOM ARCHIVE CURSOR
+========================================================= */
+
+if (window.matchMedia("(pointer: fine)").matches) {
+
+  const cursor = document.createElement("div");
+
+  cursor.className = "archive-cursor";
+
+  document.body.appendChild(cursor);
+
+
+  /* follow mouse */
+  document.addEventListener("mousemove", (event) => {
+
+    cursor.style.left = `${event.clientX}px`;
+    cursor.style.top = `${event.clientY}px`;
+
+    cursor.classList.remove("is-hidden");
+
+  });
+
+
+  /* detect clickable things */
+  const clickableElements = document.querySelectorAll(
+    "a, button, .journal-book, .archive-star, .dossier-body"
+  );
+
+  clickableElements.forEach((element) => {
+
+    element.addEventListener("mouseenter", () => {
+      cursor.classList.add("is-hovering");
+    });
+
+    element.addEventListener("mouseleave", () => {
+      cursor.classList.remove("is-hovering");
+    });
+
+  });
+
+
+  /* click animation */
+  document.addEventListener("mousedown", () => {
+    cursor.classList.add("is-clicking");
+  });
+
+  document.addEventListener("mouseup", () => {
+    cursor.classList.remove("is-clicking");
+  });
+
+
+  /* hide when pointer leaves browser window */
+  document.addEventListener("mouseleave", () => {
+    cursor.classList.add("is-hidden");
+  });
+
+}
