@@ -95,7 +95,7 @@ window.addEventListener("scroll", () => {
 });
 
 
-/* =========================================================
+/* ==========================================================
    CONSTELLATION HOVER LABEL
 ========================================================= */
 
@@ -226,3 +226,44 @@ You do NOT need to redesign the constellation.
 The new star simply becomes active.
 
 */
+/* ---------- shelf selection ---------- */
+
+const journalBooks =
+  document.querySelectorAll(".journal-book[href]");
+
+const journalPreview =
+  document.getElementById("journalPreview");
+
+journalBooks.forEach((book) => {
+
+  book.addEventListener("mouseenter", () => {
+
+    if (!journalPreview) return;
+
+    journalPreview.classList.add("journal-preview-active");
+
+  });
+
+  book.addEventListener("mouseleave", () => {
+
+    if (!journalPreview) return;
+
+    journalPreview.classList.remove("journal-preview-active");
+
+  });
+
+});
+
+
+/* ---------- open-volume animation ---------- */
+
+/*
+  entry-001.html contains a short opening-book animation.
+
+  It automatically disappears because the animation is CSS-driven.
+  No JavaScript is required to make it work.
+
+  Later we can make different journal entries display their own
+  volume title dynamically if you want.
+*/
+
