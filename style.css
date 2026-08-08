@@ -2499,7 +2499,8 @@ body * {
 
   z-index: 999999;
 
-  color: #e9e2d5;
+  color: white;
+  mix-blend-mode: difference;
 
   transform: translate(-50%, -50%);
 
