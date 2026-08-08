@@ -267,61 +267,84 @@ journalBooks.forEach((book) => {
   volume title dynamically if we want.
 */
 
-/* =========================================================
-   CUSTOM ARCHIVE CURSOR
+/* ======================================================
+   CUSTOM ARCHIVE CURSOR===
 ========================================================= */
 
-if (window.matchMedia("(pointer: fine)").matches) {
+const archiveCursor = document.createElement("div");
 
-  const cursor = document.createElement("div");
+archiveCursor.className = "archive-cursor";
 
-  cursor.className = "archive-cursor";
-
-  document.body.appendChild(cursor);
+document.body.appendChild(archiveCursor);
 
 
-  /* follow mouse */
-  document.addEventListener("mousemove", (event) => {
+/* Follow mouse */
+document.addEventListener("mousemove", (event) => {
 
-    cursor.style.left = `${event.clientX}px`;
-    cursor.style.top = `${event.clientY}px`;
+  archiveCursor.style.left = event.clientX + "px";
+  archiveCursor.style.top = event.clientY + "px";
 
-    cursor.classList.remove("is-hidden");
+  archiveCursor.classList.remove("is-hidden");
 
-  });
-
-
-  /* detect clickable things */
-  const clickableElements = document.querySelectorAll(
-    "a, button, .journal-book, .archive-star, .dossier-body"
-  );
-
-  clickableElements.forEach((element) => {
-
-    element.addEventListener("mouseenter", () => {
-      cursor.classList.add("is-hovering");
-    });
-
-    element.addEventListener("mouseleave", () => {
-      cursor.classList.remove("is-hovering");
-    });
-
-  });
+});
 
 
-  /* click animation */
-  document.addEventListener("mousedown", () => {
-    cursor.classList.add("is-clicking");
-  });
+/* Hover over clickable elements */
+document.addEventListener("mouseover", (event) => {
 
-  document.addEventListener("mouseup", () => {
-    cursor.classList.remove("is-clicking");
-  });
+  if (
+    event.target.closest(
+      "a, button, .journal-book, .archive-star, .dossier-body"
+    )
+  ) {
+
+    archiveCursor.classList.add("is-hovering");
+
+  }
+
+});
 
 
-  /* hide when pointer leaves browser window */
-  document.addEventListener("mouseleave", () => {
-    cursor.classList.add("is-hidden");
-  });
+document.addEventListener("mouseout", (event) => {
 
-}
+  if (
+    event.target.closest(
+      "a, button, .journal-book, .archive-star, .dossier-body"
+    )
+  ) {
+
+    archiveCursor.classList.remove("is-hovering");
+
+  }
+
+});
+
+
+/* Click effect */
+document.addEventListener("mousedown", () => {
+
+  archiveCursor.classList.add("is-clicking");
+
+});
+
+
+document.addEventListener("mouseup", () => {
+
+  archiveCursor.classList.remove("is-clicking");
+
+});
+
+
+/* Hide when mouse leaves page */
+document.addEventListener("mouseleave", () => {
+
+  archiveCursor.classList.add("is-hidden");
+
+});
+
+
+document.addEventListener("mouseenter", () => {
+
+  archiveCursor.classList.remove("is-hidden");
+
+});

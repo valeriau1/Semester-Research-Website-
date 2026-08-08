@@ -2470,99 +2470,114 @@ video {
   box-shadow:
     0 9px 0 #0e0b09,
     0 18px 32px rgba(0,0,0,.42);
-}/* =========================================================
+}
+/* =========================================================
    CUSTOM ARCHIVE CURSOR
 ========================================================= */
 
-/* Hide the regular cursor on devices that actually use a mouse */
-@media (pointer: fine) {
+/* Hide normal mouse cursor */
+html,
+body,
+body * {
+  cursor: none !important;
+}
 
+.archive-cursor {
+  position: fixed;
+
+  left: 0;
+  top: 0;
+
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: none;
+
+  z-index: 999999;
+
+  color: #e9e2d5;
+
+  transform: translate(-50%, -50%);
+
+  transition:
+    width .18s ease,
+    height .18s ease,
+    color .18s ease,
+    opacity .18s ease;
+}
+
+.archive-cursor::before {
+  content: "✦";
+
+  font-family: "EB Garamond", Georgia, serif;
+
+  font-size: 14px;
+
+  line-height: 1;
+
+  text-shadow: 0 0 8px rgba(233, 226, 213, .35);
+}
+
+.archive-cursor::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 1px;
+
+  border: 1px solid transparent;
+
+  border-radius: 50%;
+
+  transform: scale(.5);
+
+  transition:
+    transform .2s ease,
+    border-color .2s ease;
+}
+
+/* Hovering links/buttons/books */
+.archive-cursor.is-hovering {
+  width: 36px;
+  height: 36px;
+
+  color: #8d7a58;
+}
+
+.archive-cursor.is-hovering::after {
+  transform: scale(1);
+
+  border-color: rgba(141, 122, 88, .8);
+}
+
+/* Clicking */
+.archive-cursor.is-clicking {
+  transform:
+    translate(-50%, -50%)
+    scale(.7);
+}
+
+/* Mouse outside page */
+.archive-cursor.is-hidden {
+  opacity: 0;
+}
+
+
+/* Don't use custom cursor on phones/tablets */
+@media (pointer: coarse) {
+
+  html,
   body,
-  a,
-  button {
-    cursor: none;
+  body * {
+    cursor: auto !important;
   }
 
   .archive-cursor {
-    position: fixed;
-    left: 0;
-    top: 0;
-
-    width: 26px;
-    height: 26px;
-
-    z-index: 99999;
-
-    pointer-events: none;
-
-    transform: translate(-50%, -50%);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: var(--bone);
-
-    transition:
-      width .2s ease,
-      height .2s ease,
-      color .2s ease,
-      opacity .2s ease;
-  }
-
-  .archive-cursor::before {
-    content: "✦";
-
-    font-family: "EB Garamond", Georgia, serif;
-
-    font-size: 12px;
-
-    line-height: 1;
-
-    text-shadow: 0 0 8px rgba(233, 226, 213, .18);
-  }
-
-  /* circle appears around star when hovering something clickable */
-  .archive-cursor::after {
-    content: "";
-
-    position: absolute;
-    inset: 1px;
-
-    border: 1px solid rgba(141, 122, 88, 0);
-
-    border-radius: 50%;
-
-    transform: scale(.55);
-
-    transition:
-      transform .25s ease,
-      border-color .25s ease;
-  }
-
-  .archive-cursor.is-hovering {
-    width: 34px;
-    height: 34px;
-
-    color: var(--brass);
-  }
-
-  .archive-cursor.is-hovering::after {
-    transform: scale(1);
-
-    border-color: rgba(141, 122, 88, .7);
-  }
-
-  /* subtle click reaction */
-  .archive-cursor.is-clicking {
-    transform:
-      translate(-50%, -50%)
-      scale(.7);
-  }
-
-  /* hide cursor when mouse leaves browser */
-  .archive-cursor.is-hidden {
-    opacity: 0;
+    display: none;
   }
 
 }
