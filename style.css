@@ -2338,3 +2338,136 @@ video {
   }
 
 }
+/* ==========================================
+   EXTRA BOOK SPINE POLISH
+========================================== */
+
+.journal-book {
+  overflow: hidden;
+
+  box-shadow:
+    inset 5px 0 8px rgba(255,255,255,.025),
+    inset -8px 0 12px rgba(0,0,0,.22),
+    4px 8px 14px rgba(0,0,0,.22);
+}
+
+/* top + bottom binding bands */
+.journal-book::before {
+  content: "";
+
+  position: absolute;
+
+  left: 7px;
+  right: 7px;
+
+  top: 18px;
+
+  height: 4px;
+
+  border-top: 1px solid rgba(216,207,189,.35);
+  border-bottom: 1px solid rgba(216,207,189,.16);
+
+  opacity: .7;
+}
+
+.journal-book::after {
+  content: "";
+
+  position: absolute;
+
+  left: 7px;
+  right: 7px;
+
+  bottom: 24px;
+
+  height: 4px;
+
+  border-top: 1px solid rgba(216,207,189,.18);
+  border-bottom: 1px solid rgba(216,207,189,.35);
+
+  opacity: .7;
+}
+
+/* make the main book feel more like leather */
+.featured-book {
+  width: 128px;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,.018) 0,
+      rgba(255,255,255,.018) 1px,
+      transparent 1px,
+      transparent 4px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.04),
+      transparent 18%,
+      transparent 82%,
+      rgba(0,0,0,.24)
+    ),
+    #54272c;
+}
+
+/* little ornamental mark */
+.featured-book .book-number::after {
+  content: "✦";
+
+  display: block;
+
+  margin-top: 10px;
+
+  font-family: "EB Garamond", Georgia, serif;
+
+  font-size: .75rem;
+
+  color: var(--brass);
+
+  opacity: .8;
+}
+
+/* slightly calmer title */
+.book-spine-title {
+  font-size: .94rem;
+
+  letter-spacing: .075em;
+
+  line-height: 1.15;
+}
+
+/* more varied shelf */
+.future-book:nth-of-type(2) {
+  transform: rotate(-1.2deg);
+}
+
+.future-book:nth-of-type(3) {
+  transform: rotate(.8deg);
+}
+
+.decorative-book.thin {
+  transform: rotate(-2deg);
+}
+
+.decorative-book.medium {
+  transform: rotate(1.2deg);
+}
+
+/* richer shelf edge */
+.shelf-line {
+  height: 30px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #4b3829 0%,
+      #33261d 32%,
+      #1b1410 100%
+    );
+
+  border-top: 1px solid rgba(233,226,213,.16);
+
+  box-shadow:
+    0 9px 0 #0e0b09,
+    0 18px 32px rgba(0,0,0,.42);
+}

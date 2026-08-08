@@ -6,11 +6,6 @@ Parallel Inquiries (meow)
 - JavaScript = the things that move or react
 - Assets = the photos, videos, PDFs, and PowerPoints you put inside
 
-You do **not** need to understand everything at once.
-
-Start by editing one small thing, saving it, and refreshing the browser.
-
-
 
 # THE MOST IMPORTANT FILES
 
@@ -780,63 +775,6 @@ parallel_inquiries_site_v2/
 ```
 
 
-
-# THE THREE THINGS TO REMEMBER
-
-If you forget everything else:
-
-## HTML
-
-**What is on the page?**
-
-Words.
-
-Images.
-
-Sections.
-
-Links.
-
-Buttons.
-
----
-
-## CSS
-
-**What does it look like?**
-
-Colors.
-
-Fonts.
-
-Sizes.
-
-Spacing.
-
-Layouts.
-
-Aesthetic.
-
----
-
-## JavaScript
-
-**What does it do?**
-
-Move.
-
-React.
-
-Reveal.
-
-Change.
-
-Play.
-
-Interact.
-
----
-
 WHERE SHOULD I CHANGE SOMETHING?
 
 If you think:
@@ -944,7 +882,7 @@ dossier-a-001.jpg
 Only put the clues officially allowed to see into the website.
 
 
-# WHAT I WOULD EDIT FIRST
+# WHAT TO EDIT FIRST
 
 Do not start by rewriting everything.
 
