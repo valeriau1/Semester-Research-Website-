@@ -1,0 +1,1 @@
+If you host video locally, place it here. For YouTube/Vimeo, embed the player instead.
