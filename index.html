@@ -12,76 +12,373 @@
 
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+
+<body class="intro-active">
+
 <div class="grain" aria-hidden="true"></div>
 
+<!-- =========================================================
+     OPENING SEQUENCE
+     This appears first, then dissolves into the homepage.
+========================================================= -->
+<div class="intro-sequence" id="introSequence" aria-label="Opening animation">
+
+  <button class="skip-intro" id="skipIntro" type="button">
+    Skip
+  </button>
+
+  <div class="intro-sky" aria-hidden="true">
+    <span class="intro-star intro-star-1"></span>
+    <span class="intro-star intro-star-2"></span>
+    <span class="intro-star intro-star-3"></span>
+
+    <span class="intro-ring intro-ring-1"></span>
+    <span class="intro-ring intro-ring-2"></span>
+
+    <span class="intro-line intro-line-1"></span>
+    <span class="intro-line intro-line-2"></span>
+  </div>
+
+  <div class="intro-copy">
+    <p class="intro-code">ARCHIVE / MMXXVI</p>
+
+    <p class="intro-sentence">
+      Every inquiry begins somewhere.
+    </p>
+
+    <div class="intro-title">
+      <span>NAME</span>
+      <em>MYSTERIOUS</em>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     FIXED NAV
+========================================================= -->
 <header class="site-header">
   <a class="wordmark" href="index.html">NAME MYSTERIOUS</a>
-  <nav class="nav"><a class="" href="inquiries/index.html">Inquiries</a><a class="" href="films/index.html">Films</a><a class="" href="marginalia/index.html">Marginalia</a><a class="" href="dossiers/index.html">Dossiers</a><a class="" href="about.html">About</a></nav>
+
+  <nav class="nav">
+    <a href="inquiries/index.html">Inquiries</a>
+    <a href="films/index.html">Films</a>
+    <a href="marginalia/index.html">Marginalia</a>
+    <a href="dossiers/index.html">Dossiers</a>
+    <a href="about.html">About</a>
+  </nav>
+
   <span class="menu-note">EST. MMXXVI</span>
 </header>
 
+
 <main>
+
+<!-- =========================================================
+     HERO + INTERACTIVE CONSTELLATION
+========================================================= -->
 <section class="hero">
+
   <div class="hero-copy">
-    <p class="hero-intro">A collaborative archive of independent obsessions.</p>
-    <h1>NAME<em>MYSTERIOUS</em></h1>
+    <p class="hero-intro">
+      A collaborative archive of independent obsessions.
+    </p>
+
+    <h1>
+      NAME
+      <em>MYSTERIOUS</em>
+    </h1>
+
     <div class="hero-bottom">
-      <p>Two researchers.<br>One subject.<br>No agreed interpretation.</p>
-      <a class="linkline" href="inquiries/august-2026.html">Enter current inquiry ↓</a>
+      <p>
+        Two researchers.<br>
+        One subject.<br>
+        No agreed interpretation.
+      </p>
+
+      <a class="linkline" href="inquiries/august-2026.html">
+        Enter current inquiry ↓
+      </a>
     </div>
   </div>
-  <div class="orbit-wrap" aria-hidden="true">
-    <div class="orbit"></div><div class="orbit inner"></div><div class="orbit-dot"></div>
+
+
+  <!-- THE CONSTELLATION -->
+  <div class="constellation" id="constellation" aria-label="Semester inquiry constellation">
+
+    <div class="constellation-orbit orbit-a" aria-hidden="true"></div>
+    <div class="constellation-orbit orbit-b" aria-hidden="true"></div>
+    <div class="constellation-orbit orbit-c" aria-hidden="true"></div>
+
+    <svg class="constellation-lines" viewBox="0 0 600 600" aria-hidden="true">
+      <!--
+        As new months become active, JavaScript will reveal the
+        appropriate connecting paths.
+      -->
+      <path class="month-path path-aug-sep"
+            d="M 410 175 Q 335 235 278 300" />
+
+      <path class="month-path path-sep-oct"
+            d="M 278 300 Q 225 375 190 430" />
+
+      <path class="month-path path-oct-nov"
+            d="M 190 430 Q 310 470 420 405" />
+    </svg>
+
+
+    <!-- AUGUST: ACTIVE -->
+    <a
+      class="archive-star completed star-aug"
+      href="inquiries/august-2026.html"
+      data-month="AUGUST"
+      data-number="001"
+      data-title="THE DARK TRIAD"
+      aria-label="August 2026 — The Dark Triad">
+
+      <span class="star-core"></span>
+      <span class="star-label">AUG</span>
+    </a>
+
+
+    <!-- SEPTEMBER: locked for now -->
+    <button
+      class="archive-star future star-sep"
+      type="button"
+      data-month="SEPTEMBER"
+      data-number="002"
+      data-title="NOT YET OPENED"
+      aria-label="September inquiry not yet opened">
+
+      <span class="star-core"></span>
+      <span class="star-label">SEP</span>
+    </button>
+
+
+    <!-- OCTOBER -->
+    <button
+      class="archive-star future star-oct"
+      type="button"
+      data-month="OCTOBER"
+      data-number="003"
+      data-title="NOT YET OPENED"
+      aria-label="October inquiry not yet opened">
+
+      <span class="star-core"></span>
+      <span class="star-label">OCT</span>
+    </button>
+
+
+    <!-- NOVEMBER -->
+    <button
+      class="archive-star future star-nov"
+      type="button"
+      data-month="NOVEMBER"
+      data-number="004"
+      data-title="NOT YET OPENED"
+      aria-label="November inquiry not yet opened">
+
+      <span class="star-core"></span>
+      <span class="star-label">NOV</span>
+    </button>
+
+
+    <!-- SECRET DOSSIERS -->
+    <a
+      class="dossier-body dossier-a"
+      href="dossiers/valeria.html"
+      data-month="DOSSIER A"
+      data-number="CLASSIFIED"
+      data-title="SEMESTER FILE"
+      aria-label="Open Dossier A">
+
+      <span>α</span>
+    </a>
+
+    <a
+      class="dossier-body dossier-b"
+      href="dossiers/researcher-two.html"
+      data-month="DOSSIER B"
+      data-number="CLASSIFIED"
+      data-title="SEMESTER FILE"
+      aria-label="Open Dossier B">
+
+      <span>β</span>
+    </a>
+
+
+    <!-- hover information -->
+    <div class="constellation-info" id="constellationInfo">
+      <span class="constellation-index">001 / AUGUST MMXXVI</span>
+      <strong>THE DARK TRIAD</strong>
+      <small>Click to enter inquiry</small>
+    </div>
+
+
+    <div class="chart-label chart-label-top">
+      VOLUME I / FALL MMXXVI
+    </div>
+
+    <div class="chart-label chart-label-bottom">
+      CELESTIAL INDEX OF INQUIRY
+    </div>
+
   </div>
+
 </section>
 
+
+<!-- =========================================================
+     CURRENT MONTH
+========================================================= -->
 <section class="current">
-  <div class="section-rule"><span>01</span><span>Current Inquiry</span></div>
-  <p class="eyebrow" style="margin-top:70px">AUGUST MMXXVI / PSYCHOLOGY</p>
-  <h2>THE DARK<br>TRIAD</h2>
+
+  <div class="section-rule">
+    <span>01</span>
+    <span>Current Inquiry</span>
+  </div>
+
+  <p class="eyebrow" style="margin-top:70px">
+    AUGUST MMXXVI / PSYCHOLOGY
+  </p>
+
+  <h2>
+    THE DARK<br>
+    TRIAD
+  </h2>
+
   <div class="current-question">
     <div>What makes a person dark?</div>
     <div><em>And would we recognize it?</em></div>
   </div>
-  <div class="media-placeholder">CURRENT MONTH / FILM STILL</div>
-  <div class="current-meta">
-    <p>One broad subject. Two independent investigations. Neither researcher sees the other’s interpretation until presentation night.</p>
-    <a class="linkline" href="inquiries/august-2026.html">Enter Inquiry 001 ↗</a>
+
+  <div class="media-placeholder">
+    CURRENT MONTH / FILM STILL
   </div>
+
+  <div class="current-meta">
+
+    <p>
+      One broad subject. Two independent investigations.
+      Neither researcher sees the other’s interpretation
+      until presentation night.
+    </p>
+
+    <a class="linkline" href="inquiries/august-2026.html">
+      Enter Inquiry 001 ↗
+    </a>
+
+  </div>
+
 </section>
 
+
+<!-- =========================================================
+     LATEST FROM ARCHIVE
+========================================================= -->
 <section class="home-strip">
-  <div class="section-rule"><span>02</span><span>Latest from the archive</span></div>
+
+  <div class="section-rule">
+    <span>02</span>
+    <span>Latest from the archive</span>
+  </div>
+
   <div class="card-grid">
+
     <a class="editorial-card" href="inquiries/august-2026.html">
-      <span class="meta">INTERPRETATION A</span>
-      <h3>ONE MONSTER,<br>THREE MASKS</h3>
-      <p>Recognition, motive, ambiguity, and the familiar logic of darkness.</p>
-      <span class="linkline">Open research ↗</span>
+
+      <span class="meta">
+        INTERPRETATION A
+      </span>
+
+      <h3>
+        ONE MONSTER,<br>
+        THREE MASKS
+      </h3>
+
+      <p>
+        Recognition, motive, ambiguity, and the familiar
+        logic of darkness.
+      </p>
+
+      <span class="linkline">
+        Open research ↗
+      </span>
+
     </a>
+
 
     <a class="editorial-card" href="films/index.html">
-      <span class="meta">FIELD FILM 001</span>
-      <h3>THE ANATOMY<br>OF DARKNESS</h3>
-      <p>Research spirals, library stacks, presentation night, and everything that did not make the final files.</p>
-      <span class="linkline">Open films ↗</span>
+
+      <span class="meta">
+        FIELD FILM 001
+      </span>
+
+      <h3>
+        THE ANATOMY<br>
+        OF DARKNESS
+      </h3>
+
+      <p>
+        Research spirals, library stacks, presentation night,
+        and everything that did not make the final files.
+      </p>
+
+      <span class="linkline">
+        Open films ↗
+      </span>
+
     </a>
+
 
     <a class="editorial-card" href="dossiers/index.html">
-      <span class="meta">SEMESTER FILES</span>
-      <h3>TWO ACTIVE<br>DOSSIERS</h3>
-      <p>Each researcher is hiding one semester-long inquiry. Clues accumulate. Explanations do not.</p>
-      <span class="linkline">Inspect dossiers ↗</span>
+
+      <span class="meta">
+        SEMESTER FILES
+      </span>
+
+      <h3>
+        TWO ACTIVE<br>
+        DOSSIERS
+      </h3>
+
+      <p>
+        Each researcher is hiding one semester-long inquiry.
+        Clues accumulate. Explanations do not.
+      </p>
+
+      <span class="linkline">
+        Inspect dossiers ↗
+      </span>
+
     </a>
+
   </div>
+
 </section>
+
 </main>
 
+
 <footer class="footer">
-  <div><span class="meta">PARALLEL INQUIRIES</span><br><span class="meta">EST. 2026</span></div>
-  <p>An archive of the subjects we could not leave alone.</p>
-  <a class="linkline" href="index.html">Home ↑</a>
+
+  <div>
+    <span class="meta">NAME MYSTERIOUS</span><br>
+    <span class="meta">EST. 2026</span>
+  </div>
+
+  <p>
+    An archive of the subjects we could not leave alone.
+  </p>
+
+  <a class="linkline" href="index.html">
+    Home ↑
+  </a>
+
 </footer>
+
+
 <script src="script.js"></script>
-</body></html>
+
+</body>
+</html>
