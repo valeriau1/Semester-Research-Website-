@@ -267,8 +267,8 @@ journalBooks.forEach((book) => {
   volume title dynamically if we want.
 */
 
-/* ======================================================
-   CUSTOM ARCHIVE CURSOR===
+/* =========================================================
+   CUSTOM ARCHIVE CURSOR
 ========================================================= */
 
 const archiveCursor = document.createElement("div");
@@ -278,10 +278,14 @@ archiveCursor.className = "archive-cursor";
 document.body.appendChild(archiveCursor);
 
 
-/* Follow mouse */
+/* =========================================================
+   FOLLOW MOUSE
+========================================================= */
+
 document.addEventListener("mousemove", (event) => {
 
   archiveCursor.style.left = event.clientX + "px";
+
   archiveCursor.style.top = event.clientY + "px";
 
   archiveCursor.classList.remove("is-hidden");
@@ -289,14 +293,17 @@ document.addEventListener("mousemove", (event) => {
 });
 
 
-/* Hover over clickable elements */
+/* =========================================================
+   HOVER CLICKABLE ELEMENTS
+========================================================= */
+
 document.addEventListener("mouseover", (event) => {
 
-  if (
-    event.target.closest(
-      "a, button, .journal-book, .archive-star, .dossier-body"
-    )
-  ) {
+  const clickable = event.target.closest(
+    "a, button, .journal-book, .archive-star, .dossier-body"
+  );
+
+  if (clickable) {
 
     archiveCursor.classList.add("is-hovering");
 
@@ -307,11 +314,11 @@ document.addEventListener("mouseover", (event) => {
 
 document.addEventListener("mouseout", (event) => {
 
-  if (
-    event.target.closest(
-      "a, button, .journal-book, .archive-star, .dossier-body"
-    )
-  ) {
+  const clickable = event.target.closest(
+    "a, button, .journal-book, .archive-star, .dossier-body"
+  );
+
+  if (clickable) {
 
     archiveCursor.classList.remove("is-hovering");
 
@@ -320,7 +327,10 @@ document.addEventListener("mouseout", (event) => {
 });
 
 
-/* Click effect */
+/* =========================================================
+   CLICK EFFECT
+========================================================= */
+
 document.addEventListener("mousedown", () => {
 
   archiveCursor.classList.add("is-clicking");
@@ -335,7 +345,10 @@ document.addEventListener("mouseup", () => {
 });
 
 
-/* Hide when mouse leaves page */
+/* =========================================================
+   POINTER LEAVES / ENTERS PAGE
+========================================================= */
+
 document.addEventListener("mouseleave", () => {
 
   archiveCursor.classList.add("is-hidden");

@@ -2475,21 +2475,23 @@ video {
    CUSTOM ARCHIVE CURSOR
 ========================================================= */
 
-/* Hide normal mouse cursor */
+/* Hide the normal cursor */
 html,
 body,
 body * {
   cursor: none !important;
 }
 
+
+/* Main custom cursor */
 .archive-cursor {
   position: fixed;
 
   left: 0;
   top: 0;
 
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
 
   display: flex;
   align-items: center;
@@ -2499,76 +2501,117 @@ body * {
 
   z-index: 999999;
 
-  color: white;
-  mix-blend-mode: difference;
-
   transform: translate(-50%, -50%);
 
   transition:
     width .18s ease,
     height .18s ease,
-    color .18s ease,
-    opacity .18s ease;
+    opacity .18s ease,
+    transform .12s ease;
 }
 
+
+/* Main star */
 .archive-cursor::before {
   content: "✦";
 
   font-family: "EB Garamond", Georgia, serif;
 
-  font-size: 14px;
+  font-size: 15px;
 
   line-height: 1;
 
-  text-shadow: 0 0 8px rgba(233, 226, 213, .35);
+  /* Oxblood center */
+  color: #5a252b;
+
+  /* Bone outline keeps it visible on dark backgrounds */
+  text-shadow:
+    -1px -1px 0 #e9e2d5,
+     1px -1px 0 #e9e2d5,
+    -1px  1px 0 #e9e2d5,
+     1px  1px 0 #e9e2d5;
+
+  transition:
+    font-size .2s ease,
+    color .2s ease;
 }
 
+
+/* Circle around cursor */
 .archive-cursor::after {
   content: "";
 
   position: absolute;
 
-  inset: 1px;
+  inset: 0;
 
-  border: 1px solid transparent;
+  border: 1px solid rgba(233, 226, 213, .78);
 
   border-radius: 50%;
 
-  transform: scale(.5);
+  opacity: 0;
+
+  transform: scale(.55);
 
   transition:
-    transform .2s ease,
-    border-color .2s ease;
+    transform .22s ease,
+    opacity .22s ease,
+    border-color .22s ease;
 }
 
-/* Hovering links/buttons/books */
+
+/* =========================================================
+   HOVERING LINKS / BOOKS / STARS
+========================================================= */
+
 .archive-cursor.is-hovering {
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
+}
+
+
+/* slightly larger star */
+.archive-cursor.is-hovering::before {
+  font-size: 17px;
 
   color: #8d7a58;
 }
 
+
+/* reveal antique-style circle */
 .archive-cursor.is-hovering::after {
+  opacity: 1;
+
   transform: scale(1);
 
-  border-color: rgba(141, 122, 88, .8);
+  border-color: rgba(233, 226, 213, .82);
 }
 
-/* Clicking */
+
+/* =========================================================
+   CLICK EFFECT
+========================================================= */
+
 .archive-cursor.is-clicking {
   transform:
     translate(-50%, -50%)
-    scale(.7);
+    scale(.72);
 }
 
-/* Mouse outside page */
+
+/* =========================================================
+   HIDE WHEN POINTER LEAVES PAGE
+========================================================= */
+
 .archive-cursor.is-hidden {
   opacity: 0;
 }
 
 
-/* Don't use custom cursor on phones/tablets */
+/* =========================================================
+   PHONES / TABLETS
+========================================================= */
+
 @media (pointer: coarse) {
 
   html,
